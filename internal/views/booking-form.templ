@@ -1,0 +1,11 @@
+package views
+
+templ BookingForm() {
+	@base() {
+		<form method="post">
+			<label for="duration">Duration:</label>
+			<input type="number" id="duration" name="duration" required/>
+			<button type="submit">Create Booking</button>
+		</form>
+	}
+}

@@ -1,0 +1,21 @@
+package views
+
+import "github.com/scriptibus/moinvoice/internal/models"
+
+templ bookingEntry(booking models.Booking) {
+	<li>
+		Booking id: { booking.ID } created at: { booking.CreatedAt.Format("January 02, 2006 - 3:04 pm") }
+		duration: { booking.DurationQuarterHours }
+	</li>
+}
+
+templ BookingList(bookings []models.Booking) {
+	@base() {
+		<a href="/booking/create" type="button">Create new</a>
+		<ul>
+			for _, booking := range bookings {
+				@bookingEntry(booking)
+			}
+		</ul>
+	}
+}

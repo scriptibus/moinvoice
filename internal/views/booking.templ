@@ -1,0 +1,15 @@
+package views
+
+import "github.com/scriptibus/moinvoice/internal/models"
+
+templ Booking(duration models.QuarterHour) {
+	<li>Booking duration: { duration }</li>
+}
+
+templ BookingList(bookings []models.Booking) {
+	<ul>
+		for _, booking := range bookings {
+			@Booking(booking.Duration)
+		}
+	</ul>
+}
